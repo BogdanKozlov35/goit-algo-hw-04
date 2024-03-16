@@ -4,7 +4,6 @@ def parse_input(user_input):
     return cmd, *args
 
 def add_contact(args, contacts):
-    #name, phone = args
     try:
         name, phone = args
         contacts[name] = phone
@@ -20,16 +19,20 @@ def change_contact(args, contacts):
     except ValueError:
         return "data entered incorrectly"
 def all_contact(contacts):
-
     line = "|{:^15}|{:^15}|".format("name", "phone")
     separator = "_"*len(line)
     body = ""
-    itm = 0
     for key, val in contacts.items():
         body += ("|{:<15}|{:>15}|\n".format(key, val))
-        #itm +=1
+
     table = "\n".join([separator, line, separator, body, separator])
     return table
+
+#
+def phone_username(args, contacts):
+
+    name, *_ = args
+    return contacts[name]
 
 def main():
     contacts = {}
@@ -41,12 +44,16 @@ def main():
         if command in ["close", "exit"]:
             print("Good bye!")
             break
+        # "hello"відповідає у консоль повідомленням "How can I help you?"
         elif command == "hello":
             print("How can I help you?")
         elif command == "add":
             print(add_contact(args, contacts))
         elif command == "change":
             print(change_contact(args, contacts))
+        elif command == "number":
+            print(phone_username(args, contacts))
+
         elif command == "all":
             print(all_contact(contacts))
         else:
