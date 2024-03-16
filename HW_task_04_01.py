@@ -10,9 +10,9 @@
 import pathlib
 import sys
 def total_salary_2(path):
-    # відкриваємо для читання відомість зп із файла test.txt
+    # відкриваємо для читання відомість зп із файла salary.txt
     try:
-        with open("salary.txt", "r", encoding="utf-8") as fh:
+        with open(path, "r", encoding="utf-8") as fh:
             total = 0
             count = 0
             for line in fh:
@@ -25,5 +25,5 @@ def total_salary_2(path):
     except FileNotFoundError:
         return "Не вдалося знайти файл"
 
-total, average = total_salary_2("/goit-algo-hw-04/HW_task_04_01.py")
+total, average = total_salary_2("salary.txt")
 print(f"Загальна сума заробітної плати: {total}, Середня заробітна плата: {average}")
