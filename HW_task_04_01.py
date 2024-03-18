@@ -12,7 +12,7 @@ import sys
 def total_salary_2(path):
     # відкриваємо для читання відомість зп із файла salary.txt
     try:
-        with open(path, "r", encoding="utf-8") as fh:
+        with open("salary.txt", "r", encoding="utf-8") as fh:
             total_sum = 0
             count = 0
             for line in fh:
